@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="chart.min.js"></script>
+</head>
+<body>
+    <div class="t" style="width:600px;height:400px">
+        <canvas id="speedChart"></canvas>
+    </div>
+    <script>
+        var speedCanvas = document.getElementById("speedChart");
+
+Chart.defaults.global.defaultFontFamily = "Lato";
+Chart.defaults.global.defaultFontSize = 18;
+
+var dataFirst = {
+    label: "Car A - Speed (mph)",
+    data: [0, 59, 75, 20, 20, 55, 40],
+    lineTension: 0.3,
+    fill: false,
+    borderColor: 'red',
+    backgroundColor: 'transparent',
+    pointBorderColor: 'red',
+    pointBackgroundColor: 'lightgreen',
+    pointRadius: 5,
+    pointHoverRadius: 15,
+    pointHitRadius: 30,
+    pointBorderWidth: 2,
+    pointStyle: 'rect'
+  };
+
+var dataSecond = {
+    label: "Car B - Speed (mph)",
+    data: [20, 15, 60, 60, 65, 30, 70],
+    lineTension: 0.3,
+    fill: false,
+    borderColor: 'purple',
+    backgroundColor: 'transparent',
+    pointBorderColor: 'purple',
+    pointBackgroundColor: 'lightgreen',
+    pointRadius: 5,
+    pointHoverRadius: 15,
+    pointHitRadius: 30,
+    pointBorderWidth: 2
+  };
+
+  var datathird = {
+    label: "Car C - Speed (mph)",
+    data: [20, 20, 30, 40, 50, 60, 70],
+    lineTension: 0.3,
+    fill: false,
+    borderColor: 'blue',
+    backgroundColor: 'transparent',
+    pointBorderColor: 'blue',
+    pointBackgroundColor: 'lightgreen',
+    pointRadius: 5,
+    pointHoverRadius: 15,
+    pointHitRadius: 30,
+    pointBorderWidth: 2
+  };
+
+var speedData = {
+  labels: ["0s", "10s", "20s", "30s", "40s", "50s", "60s"],
+  datasets: [dataFirst, dataSecond,datathird]
+};
+
+var chartOptions = {
+  legend: {
+    display: true,
+    position: 'top',
+    labels: {
+      boxWidth: 80,
+      fontColor: 'black'
+    }
+  }
+};
+
+var lineChart = new Chart(speedCanvas, {
+  type: 'line',
+  data: speedData,
+  options: chartOptions
+});
+
+    </script>
+</body>
+</html>
